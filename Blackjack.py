@@ -139,7 +139,7 @@ def playerGame():
         os.system('cls' if os.name == 'Windows' else 'clear')
 
         
-        print('You have made a bet worth: ',  type(userInput))
+        print("You have made a bet worth: {}".format(userInput))
         
         playerHand = totalHand(player)
         dealerHand = totalHand(dealer)
@@ -161,23 +161,28 @@ def playerGame():
         if playerStanding:
             if dealerHand > 21:
                 print('You win! Dealer is over 21')
+                print("You won: {}".format(userInput*2))
             elif playerHand == dealerHand:
                 print('Push!')
             elif playerHand > dealerHand:
                 print('You win!')
+                print("You won: {}".format(userInput*2))
             else:
                 print('Dealer wins')
+                print("You lost: {}".format(userInput))
             break
             
 
         if firstHand and playerHand == 21:
             print('You win! - Blackjack')
+            print("You won: {}".format(userInput*2))
             break
 
         firstHand = False
             
         if playerHand > 21:
             print('Busted!')
+            print("You lost: {}".format(userInput))
             break
             
 
